@@ -3,12 +3,13 @@
  *
  * @package pahina
  */
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 
 if ( ! defined( '_Pahina_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
 	define( '_Pahina_VERSION', '1.0.0' );
 }
-
 
 /**
  * Setup

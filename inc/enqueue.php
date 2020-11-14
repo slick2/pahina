@@ -1,8 +1,10 @@
 <?php
-
 /**
  * Enqueue scripts and styles.
  */
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 function pahina_scripts() {
 	wp_enqueue_style( 'pahina-style', get_stylesheet_uri(), array(), _Pahina_VERSION );
 	wp_style_add_data( 'pahina-style', 'rtl', 'replace' );
