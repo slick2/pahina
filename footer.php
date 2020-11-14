@@ -6,7 +6,7 @@
 $container = get_theme_mod( 'pahina_container_type' );
 ?>
 
-</div><?php /*End Container */?>
+<?php get_template_part( 'sidebar-templates/sidebar', 'footer' ); ?>
 
 	<footer id="colophon" class="site-footer">
 		<div class="site-info <?php echo esc_attr( $container ); ?>">
