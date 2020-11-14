@@ -164,3 +164,46 @@ if ( ! function_exists( 'wp_body_open' ) ) :
 		do_action( 'wp_body_open' );
 	}
 endif;
+
+
+
+// Read More
+
+add_filter( 'excerpt_more', 'pahina_custom_excerpt_more' );
+
+if ( ! function_exists( 'pahina_custom_excerpt_more' ) ) {
+	/**
+	 * Removes the ... from the excerpt read more link
+	 *
+	 * @param string $more The excerpt.
+	 *
+	 * @return string
+	 */
+	function pahina_custom_excerpt_more( $more ) {
+		if ( ! is_admin() ) {
+			$more = '';
+		}
+		return $more;
+	}
+}
+
+add_filter( 'wp_trim_excerpt', 'pahina_all_excerpts_get_more_link' );
+
+if ( ! function_exists( 'pahina_all_excerpts_get_more_link' ) ) {
+	/**
+	 * Adds a custom read more link to all excerpts, manually or automatically generated
+	 *
+	 * @param string $post_excerpt Posts's excerpt.
+	 *
+	 * @return string
+	 */
+	function pahina_all_excerpts_get_more_link( $post_excerpt ) {
+		if ( ! is_admin() ) {
+			$post_excerpt = $post_excerpt . ' [...]<p><a class="btn btn-secondary pahina-read-more-link" href="' . esc_url( get_permalink( get_the_ID() ) ) . '">' . __(
+				'Read More...',
+				'pahina'
+			) . '</a></p>';
+		}
+		return $post_excerpt;
+	}
+}

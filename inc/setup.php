@@ -106,7 +106,7 @@ if ( ! function_exists( 'pahina_setup' ) ) :
 		// Add Post Formats
 		add_action( 'after_setup_theme', 'pahina_post_formats', 11 );
 		function pahina_post_formats(){
-			add_theme_support( 'post-formats', array( 'aside', 'gallery', 'link' ) );
+			add_theme_support( 'post-formats', array( 'aside', 'gallery', 'link', 'video' ) );
 		}
 
 

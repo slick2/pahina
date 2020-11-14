@@ -4,6 +4,8 @@
  * 
  * @package pahina
  */
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 
 /**
  * Search Filter
@@ -26,52 +28,100 @@ function custom_search_form( $form ) {
 add_filter( 'get_search_form', 'custom_search_form', 100 );
 
 
-/** Comments */
-function modify_pahina_comment_form_text_area($arg) {
-    $arg['comment_field'] = '<p class="comment-form-comment"><label for="comment">' . _x( 'Your Feedback Is Appreciated', 'noun' ) . '</label><textarea class="form-control" id="comment" name="comment" cols="45" rows="7" aria-required="true"></textarea></p>';
-    return $arg;
-}
 
-add_filter('comment_form_defaults', 'modify_pahina_comment_form_text_area');
+// Add Bootstrap classes to comment form fields.
+add_filter( 'comment_form_default_fields', 'pahina_bootstrap_comment_form_fields' );
 
-
-// Read More
-
-add_filter( 'excerpt_more', 'pahina_custom_excerpt_more' );
-
-if ( ! function_exists( 'pahina_custom_excerpt_more' ) ) {
+if ( ! function_exists( 'pahina_bootstrap_comment_form_fields' ) ) {
 	/**
-	 * Removes the ... from the excerpt read more link
+	 * Add Bootstrap classes to WP's comment form default fields.
 	 *
-	 * @param string $more The excerpt.
+	 * @param array $fields {
+	 *     Default comment fields.
 	 *
-	 * @return string
+	 *     @type string $author  Comment author field HTML.
+	 *     @type string $email   Comment author email field HTML.
+	 *     @type string $url     Comment author URL field HTML.
+	 *     @type string $cookies Comment cookie opt-in field HTML.
+	 * }
+	 *
+	 * @return array
 	 */
-	function pahina_custom_excerpt_more( $more ) {
-		if ( ! is_admin() ) {
-			$more = '';
+	function pahina_bootstrap_comment_form_fields( $fields ) {
+
+		$replace = array(
+			'<p class="' => '<div class="form-group ',
+			'<input'     => '<input class="form-control" ',
+			'</p>'       => '</div>',
+		);
+
+		if ( isset( $fields['author'] ) ) {
+			$fields['author'] = strtr( $fields['author'], $replace );
 		}
-		return $more;
+		if ( isset( $fields['email'] ) ) {
+			$fields['email'] = strtr( $fields['email'], $replace );
+		}
+		if ( isset( $fields['url'] ) ) {
+			$fields['url'] = strtr( $fields['url'], $replace );
+		}
+
+		$replace = array(
+			'<p class="' => '<div class="form-group form-check ',
+			'<input'     => '<input class="form-check-input" ',
+			'<label'     => '<label class="form-check-label" ',
+			'</p>'       => '</div>',
+		);
+		if ( isset( $fields['cookies'] ) ) {
+			$fields['cookies'] = strtr( $fields['cookies'], $replace );
+		}
+
+		return $fields;
 	}
-}
+} // End of if function_exists( 'pahina_bootstrap_comment_form_fields' )
 
-add_filter( 'wp_trim_excerpt', 'pahina_all_excerpts_get_more_link' );
+// Add Bootstrap classes to comment form submit button and comment field.
+add_filter( 'comment_form_defaults', 'pahina_bootstrap_comment_form' );
 
-if ( ! function_exists( 'pahina_all_excerpts_get_more_link' ) ) {
+if ( ! function_exists( 'pahina_bootstrap_comment_form' ) ) {
 	/**
-	 * Adds a custom read more link to all excerpts, manually or automatically generated
+	 * Adds Bootstrap classes to comment form submit button and comment field.
 	 *
-	 * @param string $post_excerpt Posts's excerpt.
+	 * @param string[] $args Comment form arguments and fields.
 	 *
-	 * @return string
+	 * @return string[]
 	 */
-	function pahina_all_excerpts_get_more_link( $post_excerpt ) {
-		if ( ! is_admin() ) {
-			$post_excerpt = $post_excerpt . ' [...]<p><a class="btn btn-secondary pahina-read-more-link" href="' . esc_url( get_permalink( get_the_ID() ) ) . '">' . __(
-				'Read More...',
-				'pahina'
-			) . '</a></p>';
+	function pahina_bootstrap_comment_form( $args ) {
+		$replace = array(
+			'<p class="' => '<div class="form-group ',
+			'<textarea'  => '<textarea class="form-control" ',
+			'</p>'       => '</div>',
+		);
+
+		if ( isset( $args['comment_field'] ) ) {
+			$args['comment_field'] = strtr( $args['comment_field'], $replace );
 		}
-		return $post_excerpt;
+
+		if ( isset( $args['class_submit'] ) ) {
+			$args['class_submit'] = 'btn btn-secondary mt-3';
+		}
+
+		return $args;
 	}
-}
+} // End of if function_exists( 'pahina_bootstrap_comment_form' ).
+
+
+// Add note if comments are closed.
+add_action( 'comment_form_comments_closed', 'pahina_comment_form_comments_closed' );
+
+if ( ! function_exists( 'pahina_comment_form_comments_closed' ) ) {
+	/**
+	 * Displays a note that comments are closed if comments are closed and there are comments.
+	 */
+	function pahina_comment_form_comments_closed() {
+		if ( get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) {
+			?>
+			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'pahina' ); ?></p>
+			<?php
+		}
+	}
+} // End of if function_exists( 'pahina_comment_form_comments_closed' ).
