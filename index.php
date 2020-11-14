@@ -14,7 +14,6 @@ get_header();
 
 <div class="page-wrapper" id="wrapper">
 
-
 	<div class="<?php echo esc_attr($container); ?>">
 
 		<div class="row">

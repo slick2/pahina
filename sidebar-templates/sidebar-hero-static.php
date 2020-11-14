@@ -18,12 +18,7 @@ $container = get_theme_mod( 'pahina_container_type' );
 
 	<div class="wrapper" id="wrapper-hero-static">
 
-    <div class="<?php echo esc_attr($container); ?>">
-
     <?php dynamic_sidebar( 'hero-static-sidebar' ); ?>
-
-    </div>
-
 
     </div><!-- #wrapper-Hero Static -->
 

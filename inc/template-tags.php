@@ -199,7 +199,7 @@ if ( ! function_exists( 'pahina_all_excerpts_get_more_link' ) ) {
 	 */
 	function pahina_all_excerpts_get_more_link( $post_excerpt ) {
 		if ( ! is_admin() ) {
-			$post_excerpt = $post_excerpt . ' [...]<p><a class="btn btn-secondary pahina-read-more-link" href="' . esc_url( get_permalink( get_the_ID() ) ) . '">' . __(
+			$post_excerpt = $post_excerpt . ' [...]<p><a class="btn btn-secondary btn-sm pahina-read-more-link" href="' . esc_url( get_permalink( get_the_ID() ) ) . '">' . __(
 				'Read More...',
 				'pahina'
 			) . '</a></p>';
