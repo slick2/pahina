@@ -44,8 +44,8 @@ gulp.task("get-src", gulp.series(gulp.series("bs-scss", "bs-js")));
 // Processing Theme Sass
 gulp.task("sass", () => {
   return gulp
-    .src(paths.sass + "/**/*.scss")
-    // .pipe(sass().on("error", sass.logError))
+    .src(paths.sass + "/*.scss")
+    .pipe(sass().on("error", sass.logError))
     .pipe(gulp.dest(paths.assets + paths.css))
     .pipe(browserSync.stream());
 });

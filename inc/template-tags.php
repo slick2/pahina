@@ -128,7 +128,7 @@ if ( ! function_exists( 'pahina_post_thumbnail' ) ) :
 			?>
 
 			<div class="post-thumbnail">
-				<?php the_post_thumbnail(); ?>
+				<?php the_post_thumbnail('post-thumbnail', array( 'class' => 'img-fluid')); ?>
 			</div><!-- .post-thumbnail -->
 
 		<?php else : ?>
@@ -143,6 +143,7 @@ if ( ! function_exists( 'pahina_post_thumbnail' ) ) :
 									'echo' => false,
 								)
 							),
+							'class' => 'img-fluid',
 						)
 					);
 				?>

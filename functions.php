@@ -25,6 +25,12 @@ require get_template_directory() . '/inc/enqueue.php';
  */
 require get_template_directory() . '/inc/widgets.php';
 
+/**
+ * Pagination
+ */
+require get_template_directory() . '/inc/pagination.php';
+
+
 
 /**
  * Implement the Custom Header feature.
