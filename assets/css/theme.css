@@ -7416,3 +7416,6 @@ a.skip-link {
 
 .woocommerce .woocommerce-checkout .col2-set .col-1 {
   margin-bottom: 30px; }
+
+.custom-logo {
+  max-width: 20px; }
