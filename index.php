@@ -9,8 +9,11 @@ $container = get_theme_mod('pahina_container_type');
 get_header();
 ?>
 
+<?php get_template_part('sidebar-templates/sidebar', 'hero'); ?>
+<?php get_template_part('sidebar-templates/sidebar', 'hero-static'); ?>
 
 <div class="page-wrapper" id="wrapper">
+
 
 	<div class="<?php echo esc_attr($container); ?>">
 
