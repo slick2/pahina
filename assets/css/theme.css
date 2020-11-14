@@ -14168,6 +14168,12 @@ readers do not read off random characters that represent icons */
 .navbar-dark .nav-item:hover .nav-link {
   color: #fff; }
 
+.navbar-light .nav-item.active .nav-link,
+.navbar-light .nav-item .nav-link:active,
+.navbar-light .nav-item .nav-link:focus,
+.navbar-light .nav-item:hover .nav-link {
+  color: rgba(0, 0, 0, 0.9); }
+
 .wp-caption {
   font-size: inherit; }
 

@@ -3,8 +3,16 @@
 .navbar-dark .nav-item .nav-link:active,
 .navbar-dark .nav-item .nav-link:focus,
 .navbar-dark .nav-item:hover .nav-link {
-    color: #fff;
+    color: $navbar-dark-active-color;
 }
+
+.navbar-light .nav-item.active .nav-link,
+.navbar-light .nav-item .nav-link:active,
+.navbar-light .nav-item .nav-link:focus,
+.navbar-light .nav-item:hover .nav-link {
+    color: $navbar-light-active-color;
+}
+
 
 // Necessary WP classes
 .wp-caption {
