@@ -1,0 +1,32 @@
+  
+
+{
+	"browserSyncOptions": {
+        "proxy": "http://pahina.local",
+        "notify": true
+    },
+    "paths": {
+        "themeSass": "/theme.scss",
+        "themeCss": "/theme.css",
+        "themeCssMin": "/theme.min.css",
+        "themeJs": "/theme.js",
+        "themeJsMin": "/theme.min.js",
+        "bootstrap": "/bootstrap",
+        "popper": "/popper",
+		"js": "/js",
+        "css": "/css",
+        "img": "/img",
+        "webfonts": "/webfonts",
+        "maps": "/maps",
+        "custom": "/custom",
+        "sass": "./sass",
+		"imgsrc": "./src/img/**/*",
+		"node": "./node_modules",
+        "composer": "./vendor",
+        "base": "./",
+        "assets": "./assets",
+		"dev": "./src",
+		"dist": "./dist",
+		"distprod": "./dist-product" 
+	}
+}
