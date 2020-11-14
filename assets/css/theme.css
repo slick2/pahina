@@ -7409,3 +7409,10 @@ a.skip-link {
 
 .page-wrapper {
   margin: 3em 0; }
+
+.woocommerce .woocommerce-checkout .col2-set .col-1,
+.woocommerce .woocommerce-checkout .col2-set .col-2 {
+  width: 100% !important; }
+
+.woocommerce .woocommerce-checkout .col2-set .col-1 {
+  margin-bottom: 30px; }

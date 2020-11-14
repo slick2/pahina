@@ -125,3 +125,16 @@ if ( ! function_exists( 'pahina_comment_form_comments_closed' ) ) {
 		}
 	}
 } // End of if function_exists( 'pahina_comment_form_comments_closed' ).
+
+
+// WooCommerce
+
+function pahina_wc_bootstrap_form_field_args ($args, $key, $value) { 
+  
+	$args['input_class'][] = 'form-control'; 
+	return $args; 
+  }
+  add_filter('woocommerce_form_field_args','pahina_wc_bootstrap_form_field_args', 10, 3);
+
+
+  
