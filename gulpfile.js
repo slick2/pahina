@@ -36,9 +36,21 @@ gulp.task("bs-js", async () => {
     .pipe(gulp.dest(paths.dev + "/bootstrap/js"));
 });
 
+gulp.task("get-fonts", async () => {
+  gulp
+    .src([paths.node + "/@fortawesome/fontawesome-free/webfonts/*"]) 
+    .pipe(gulp.dest(paths.assets + paths.webfonts));
+});
+
+gulp.task("get-fonts-scss", async () => {
+  gulp
+    .src([paths.node + "/@fortawesome/fontawesome-free/scss/*"]) 
+    .pipe(gulp.dest(paths.dev + "/fontawesome"));
+});
+
 // Follow the format above to add new dependencies and add to get-src
 // Get all dependencies to src
-gulp.task("get-src", gulp.series(gulp.series("bs-scss", "bs-js")));
+gulp.task("get-src", gulp.series(gulp.series("bs-scss", "bs-js", "get-fonts", "get-fonts-scss")));
 
 // Pre-Process
 // Processing Theme Sass
@@ -126,7 +138,7 @@ gulp.task("delete-dist", () => {
 });
 
 // Styles [Run sass -> minify-css -> clean-css]
-gulp.task("styles", gulp.series(gulp.series("sass", "minify-css")));
+gulp.task("styles", gulp.series(gulp.series("sass", "minify-css", "get-fonts", "get-fonts-scss")));
 
 // Get Scripts
 gulp.task("scripts", async () => {

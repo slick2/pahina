@@ -16,6 +16,7 @@
 		"js": "/js",
         "css": "/css",
         "img": "/img",
+        "webfonts": "/webfonts",
         "maps": "/maps",
         "custom": "/custom",
         "sass": "./sass",
