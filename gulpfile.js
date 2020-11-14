@@ -118,11 +118,6 @@ gulp.task("reset-assets-img", () => {
 });
 
 // Delete Sources
-// Be very careful using this as you'll need to generate the correct tree to process all files again
-// Default tree
-// src
-// |-img
-// |-js
 gulp.task("delete-src", () => {
   return gulp.src(paths.dev, { read: false }).pipe(clean());
 });

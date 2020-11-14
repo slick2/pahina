@@ -19,7 +19,7 @@
         "webfonts": "/webfonts",
         "maps": "/maps",
         "custom": "/custom",
-        "sass": "./scss",
+        "sass": "./sass",
 		"imgsrc": "./src/img/**/*",
 		"node": "./node_modules",
         "composer": "./vendor",
