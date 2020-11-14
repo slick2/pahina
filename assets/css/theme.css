@@ -14162,6 +14162,12 @@ readers do not read off random characters that represent icons */
 .fa.fa-cab:before {
   content: "\f1ba"; }
 
+.navbar-dark .nav-item.active .nav-link,
+.navbar-dark .nav-item .nav-link:active,
+.navbar-dark .nav-item .nav-link:focus,
+.navbar-dark .nav-item:hover .nav-link {
+  color: #fff; }
+
 .wp-caption {
   font-size: inherit; }
 
