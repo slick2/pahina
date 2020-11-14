@@ -143,7 +143,7 @@ gulp.task("styles", gulp.series(gulp.series("sass", "minify-css", "get-fonts", "
 // Get Scripts
 gulp.task("scripts", async () => {
   gulp
-    .src(paths.dev + "/**/*.js")
+    .src([paths.dev + "/**/*.js","./js/theme.js"])
     .pipe(
       minify({
         ext: {
