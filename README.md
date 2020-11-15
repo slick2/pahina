@@ -2,7 +2,7 @@
 A WordPress starter theme based on [Underscores](https://underscores.me/) and [Boostratap 5](https://v5.getbootstrap.com)
 
 # Demo
-[https://josephlariosa.com/pahina-demo](https://josephlariosa.com/pahina-demo)
+[https://josephlariosa.com/pahina](https://josephlariosa.com/pahina)
 
 # Basic Features
 * Combines Underscore’s PHP/JS files and Bootstrap’s HTML/CSS/JS.
