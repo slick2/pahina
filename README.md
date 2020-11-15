@@ -18,7 +18,7 @@ A WordPress starter theme based on [Underscores](https://underscores.me/) and us
 Download or clone the repo to wp-content/themes/**pahina** then navigate to wp-admin->themes and activate the theme.
 
 # Customization
-***Please do not use this as your primary theme, as all your changes will be overwritten when the pahina theme updates, instead use the [childtheme](https://github.com/jahzlariosa/pahina-childtheme-master)***
+***Please do not use this as your primary theme, as all your changes will be overwritten when the pahina theme updates, instead use the [childtheme - https://github.com/jahzlariosa/pahina-child](https://github.com/jahzlariosa/pahina-child)***
 
 * Your design goes into: /sass/theme.**
 * Add your styles to the /sass/theme/custom.scss file
