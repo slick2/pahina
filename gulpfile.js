@@ -205,6 +205,7 @@ gulp.task(
     browserSync.init(cfg.browserSyncOptions);
     gulp.watch(paths.sass + "/**/*.scss", gulp.series("styles"));
     gulp.watch(paths.dev + "/**/*.js", gulp.series("scripts"));
+    gulp.watch("." + paths.js + "/*.js", gulp.series("scripts"));
     gulp.watch(paths.imgsrc, gulp.series("imagemin"));
     gulp.watch("./*.html").on("change", browserSync.reload);
     gulp.watch("./*.php").on("change", browserSync.reload);
