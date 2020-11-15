@@ -96,6 +96,10 @@ if ( ! function_exists( 'pahina_setup' ) ) :
 			)
 		);
 
+		// Add Post Formats
+		add_theme_support( 'post-formats', array( 'aside', 'gallery', 'link', 'video' ) );
+
+
 		// Custom Header
 		add_theme_support( 'custom-header' );
 
@@ -105,12 +109,8 @@ if ( ! function_exists( 'pahina_setup' ) ) :
 		// Editor Style
 		add_editor_style('assets/editor-style.css');
 
-		// Add Post Formats
-		add_action( 'after_setup_theme', 'pahina_post_formats', 11 );
-		function pahina_post_formats(){
-			add_theme_support( 'post-formats', array( 'aside', 'gallery', 'link', 'video' ) );
-		}
-
+		// Check and setup theme default settings.
+		pahina_setup_theme_default_settings();
 
 		
 	}
