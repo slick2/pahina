@@ -36,6 +36,12 @@ gulp.task("bs-js", async () => {
     .pipe(gulp.dest(paths.dev + "/bootstrap/js"));
 });
 
+gulp.task("get-popper", async () => {
+  gulp
+    .src(paths.node + "/@popperjs/core/dist/umd/popper.min.js") 
+    .pipe(gulp.dest(paths.assets + "/js"));
+});
+
 gulp.task("get-fonts", async () => {
   gulp
     .src([paths.node + "/@fortawesome/fontawesome-free/webfonts/*"]) 
@@ -138,7 +144,7 @@ gulp.task("styles", gulp.series(gulp.series("sass", "minify-css", "get-fonts", "
 // Get Scripts
 gulp.task("scripts", async () => {
   gulp
-    .src([paths.dev + "/**/*.js","./js/theme.js"])
+    .src([paths.dev + "/bootstrap/js/bootstrap.js","./js/theme.js", paths.dev + "/bootstrap/js/bootstrap.bundle.js"])
     .pipe(
       minify({
         ext: {
