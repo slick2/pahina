@@ -32,14 +32,8 @@ gulp.task("bs-scss", async () => {
 
 gulp.task("bs-js", async () => {
   gulp
-    .src([paths.node + "/bootstrap/dist/js/bootstrap.js"]) 
+    .src([paths.node + "/bootstrap/dist/js/bootstrap.js", paths.node + "/bootstrap/dist/js/bootstrap.bundle.js"]) 
     .pipe(gulp.dest(paths.dev + "/bootstrap/js"));
-});
-
-gulp.task("get-popper", async () => {
-  gulp
-    .src(paths.node + "/@popperjs/core/dist/umd/popper.min.js") 
-    .pipe(gulp.dest(paths.assets + "/js"));
 });
 
 gulp.task("get-fonts", async () => {

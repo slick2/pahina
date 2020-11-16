@@ -19,8 +19,7 @@ add_action( 'wp_enqueue_scripts', 'pahina_scripts' );
 
 function pahina_style_scripts() {
    wp_enqueue_style( 'pahina-styles', get_template_directory_uri() . '/assets/css/theme.min.css' );
-   wp_enqueue_script( 'pahina-bootstrap-script', get_template_directory_uri() . '/assets/js/bootstrap/js/bootstrap.min.js', array(), true );
+   wp_enqueue_script( 'pahina-bootstrap-script', get_template_directory_uri() . '/assets/js/bootstrap.bundle.min.js', array(), true );
    wp_enqueue_script( 'pahina-script', get_template_directory_uri() . '/assets/js/theme.min.js', array(), true );
-
 }
 add_action('wp_enqueue_scripts', 'pahina_style_scripts');
