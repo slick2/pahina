@@ -212,4 +212,13 @@ gulp.task(
   })
 );
 
+gulp.task(
+  "watch",
+  gulp.series("styles", "scripts", function () {
+    gulp.watch(paths.sass + "/**/*.scss", gulp.series("styles"));
+    gulp.watch(paths.dev + "/**/*.js", gulp.series("scripts"));
+    gulp.watch("." + paths.js + "/*.js", gulp.series("scripts"));
+  })
+);
+
 gulp.task("default", gulp.series("start"));

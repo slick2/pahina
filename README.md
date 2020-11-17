@@ -53,6 +53,10 @@ gulp scripts
 ```
 gulp build-assets
 ```
+## Watch & Process CSS & JS automatically without BrowserSync
+```
+gulp watch
+```
 
 ## Use browserSync | Edit gulpconfig.json
 * Serving from a server environment
